@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { Detalle_pokemonComponent } from './components/detalle_pokemon/detalle_pokemon.component';
 import { HomeComponent } from './pages/home/home.component';
 import { Foto_pokemonComponent } from './components/foto_pokemon/foto_pokemon.component';
@@ -19,7 +20,8 @@ import { Tarjeta_pokemonComponent } from './components/tarjeta_pokemon/tarjeta_p
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
