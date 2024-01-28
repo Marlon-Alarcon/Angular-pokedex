@@ -2,10 +2,8 @@
     <app-foto_pokemon></app-foto_pokemon>
 
     <div class="tarjetacontainer">
-        <app-tarjeta_pokemon></app-tarjeta_pokemon>
-        <app-tarjeta_pokemon></app-tarjeta_pokemon>
-        <app-tarjeta_pokemon></app-tarjeta_pokemon>
-        <app-tarjeta_pokemon></app-tarjeta_pokemon>
+        <app-tarjeta_pokemon *ngFor="let pokemon of listaPokemon"
+        [data]="pokemon"></app-tarjeta_pokemon>
     </div>
     
 </main>

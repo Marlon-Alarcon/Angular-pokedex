@@ -11,11 +11,11 @@ export class PokemonService {
 constructor(private httpclient : HttpClient) { }
 
 getpokemon(): Observable<DatoPokemon>{
-  return this.httpclient.get('https://pokeapi.co/api/v2/pokemon/?limit=60&offset=60') as Observable<DatoPokemon>
+  return this.httpclient.get('https://pokeapi.co/api/v2/pokemon/?limit=10&offset=0') as Observable<DatoPokemon>
 }
 
-getpokemonId(){
-
+getpokemonId(id:string){
+  return this.httpclient.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
 }
 
 
