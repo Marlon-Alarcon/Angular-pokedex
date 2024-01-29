@@ -1,5 +1,5 @@
 <div  class="container" [ngClass]="{seleccionado: seleccionado}">
-  <img src="../../../assets/img/flecha.png" class="flecha">
+  <img src="../../../assets/img/flecha.png" class="flecha" *ngIf="seleccionado">
   <div class="tarjeta" (click)="clickeado.emit(numero)">
     <div class="circulo"></div>
     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{numero}}.png" alt="">

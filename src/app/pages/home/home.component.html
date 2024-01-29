@@ -1,4 +1,5 @@
 <main class="container">
+    <app-detalle_pokemon [pokemon]="pokemonSeleccionado"></app-detalle_pokemon>
     <app-foto_pokemon [pokemon]="pokemonSeleccionado"></app-foto_pokemon>
 
     <div class="tarjetacontainer" #tarjetas (scroll)="onScroll($event)">

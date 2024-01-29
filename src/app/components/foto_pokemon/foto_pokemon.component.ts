@@ -8,7 +8,7 @@ import { Pokemon } from 'src/app/interfaces/pokemon';
 })
 export class Foto_pokemonComponent implements OnInit {
 
-  @Input() pokemon? :Pokemon
+  @Input() pokemon?: Pokemon;
 
   constructor() { }
 

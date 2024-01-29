@@ -35,6 +35,12 @@
 
 app-foto_pokemon{
     margin-left: 100px;
+    z-index: 2;
+}
+
+app-detalle_pokemon{
+  position: absolute;
+  z-index: 1;
 }
 
 .tarjetacontainer{
