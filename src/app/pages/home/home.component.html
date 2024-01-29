@@ -3,8 +3,9 @@
 
     <div class="tarjetacontainer" #tarjetas (scroll)="onScroll($event)">
         <app-tarjeta_pokemon *ngFor="let pokemon of listaPokemon"
-        [data]="pokemon" (clickeado)="seleccionado($event)"
-        [seleccionado]="pokemon?.name === pokemonSeleccionado?.name"></app-tarjeta_pokemon>
+            [data]="pokemon" (clickeado)="seleccionado($event)"
+            [seleccionado]="pokemon?.name === pokemonSeleccionado?.name">
+        </app-tarjeta_pokemon>
 
 
         <div class="centrar">
