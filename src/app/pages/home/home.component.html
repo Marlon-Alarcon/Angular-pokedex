@@ -1,9 +1,9 @@
 <main class="container">
-    <app-foto_pokemon></app-foto_pokemon>
+    <app-foto_pokemon [pokemon]="pokemonSeleccionado"></app-foto_pokemon>
 
     <div class="tarjetacontainer" #tarjetas (scroll)="onScroll($event)">
         <app-tarjeta_pokemon *ngFor="let pokemon of listaPokemon"
-        [data]="pokemon"></app-tarjeta_pokemon>
+        [data]="pokemon" (clickeado)="seleccionado($event)"></app-tarjeta_pokemon>
 
 
         <div class="centrar">

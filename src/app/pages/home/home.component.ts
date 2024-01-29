@@ -1,6 +1,7 @@
 import { DatoPokemon } from 'src/app/interfaces/pokeapi';
 import { PokemonService } from './../../services/pokemon.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Pokemon } from 'src/app/interfaces/pokemon';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
   listaPokemon: any = []
   pagina:number = 1
   cargando:boolean = false
+  pokemonSeleccionado: any = []
 
   constructor(
     private pokemonService:PokemonService
@@ -69,6 +71,15 @@ export class HomeComponent implements OnInit {
         }
     }
 
+  }
+
+  seleccionado(id:string){
+    console.log(id)
+    this.pokemonSeleccionado = this.pokemonService.getpokemonId(id).subscribe((data: Pokemon) => {
+      this.pokemonSeleccionado = data
+
+      console.log(this.pokemonSeleccionado)
+    },(error) => console.log(error))
   }
   
 

@@ -1,5 +1,5 @@
 import { PokemonService } from './../../services/pokemon.service';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { PokemonI } from 'src/app/interfaces/pokeapi';
 
 @Component({
@@ -26,12 +26,13 @@ export class Tarjeta_pokemonComponent implements OnInit, OnChanges {
   }
   
   @Input() data?:PokemonI
+  @Output() clickeado = new EventEmitter<string>()
 
   extraernumero(){
 
     if(this.data){
       this.numero = this.data?.url.substring(34,this.data.url.length-1)
-      console.log(this.numero)
+      // console.log(this.numero)
       // this.fulldata = this.pokemonService.getpokemonId(this.numero)
       // console.log(this.fulldata)
 

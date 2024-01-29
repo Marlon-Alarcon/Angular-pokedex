@@ -1,6 +1,6 @@
 <div  class="container">
   <img src="../../../assets/img/flecha.png" class="flecha">
-  <div class="tarjeta">
+  <div class="tarjeta" (click)="clickeado.emit(numero)">
     <div class="circulo"></div>
     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{numero}}.png" alt="">
     <span>No. {{numero}}</span>
