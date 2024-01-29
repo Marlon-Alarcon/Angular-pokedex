@@ -26,6 +26,7 @@ export class Tarjeta_pokemonComponent implements OnInit, OnChanges {
   }
   
   @Input() data?:PokemonI
+  @Input() seleccionado?:boolean = false
   @Output() clickeado = new EventEmitter<string>()
 
   extraernumero(){

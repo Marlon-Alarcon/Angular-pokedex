@@ -1,4 +1,4 @@
-<div  class="container">
+<div  class="container" [ngClass]="{seleccionado: seleccionado}">
   <img src="../../../assets/img/flecha.png" class="flecha">
   <div class="tarjeta" (click)="clickeado.emit(numero)">
     <div class="circulo"></div>
