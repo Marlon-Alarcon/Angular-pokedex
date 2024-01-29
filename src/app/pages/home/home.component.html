@@ -1,9 +1,24 @@
 <main class="container">
     <app-foto_pokemon></app-foto_pokemon>
 
-    <div class="tarjetacontainer">
+    <div class="tarjetacontainer" #tarjetas (scroll)="onScroll($event)">
         <app-tarjeta_pokemon *ngFor="let pokemon of listaPokemon"
         [data]="pokemon"></app-tarjeta_pokemon>
+
+
+        <div class="centrar">
+            <div class="dot-spinner" *ngIf="cargando">
+                <div class="dot-spinner__dot"></div>
+                <div class="dot-spinner__dot"></div>
+                <div class="dot-spinner__dot"></div>
+                <div class="dot-spinner__dot"></div>
+                <div class="dot-spinner__dot"></div>
+                <div class="dot-spinner__dot"></div>
+                <div class="dot-spinner__dot"></div>
+                <div class="dot-spinner__dot"></div>
+            </div>
+        </div>
+
     </div>
     
 </main>

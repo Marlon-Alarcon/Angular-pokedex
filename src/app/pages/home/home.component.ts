@@ -1,6 +1,6 @@
 import { DatoPokemon } from 'src/app/interfaces/pokeapi';
 import { PokemonService } from './../../services/pokemon.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +12,8 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   listaPokemon: any = []
+  pagina:number = 1
+  cargando:boolean = false
 
   constructor(
     private pokemonService:PokemonService
@@ -21,22 +23,52 @@ export class HomeComponent implements OnInit {
     this.cargarLista();
   }
 
-  cargarLista() {
-    this.pokemonService.getpokemon().subscribe(
+  @ViewChild('tarjetas', { static: true }) tarjetasElement!: ElementRef;
+
+  async cargarLista() {
+
+    this.cargando = true
+
+    this.pokemonService.getpokemon(this.pagina).subscribe(
       (data: DatoPokemon) => {
 
         if (data && data.results) {
-
+          this.pagina++
+          console.log(this.pagina)
           this.listaPokemon = this.listaPokemon.concat(data.results);
           console.log(this.listaPokemon);
-        } else {
 
+          this.cargando = false
+          // console.log(this.cargando)
+        } else {
+          this.cargando = true
           console.error('Sin Estructura');
         }
         
       },
       (error) => console.error(error)
     );
+    
+
+    
+
+  }
+
+  onScroll(e:any){
+    // console.log(e)
+    if(this.cargando){
+      console.log("cragando amigo")
+    }
+    else{
+      if(
+        Math.round(
+          this.tarjetasElement.nativeElement.clientHeight + this.tarjetasElement.nativeElement.scrollTop
+          )
+          === e.srcElement.scrollHeight){
+          this.cargarLista();
+        }
+    }
+
   }
   
 
