@@ -22,11 +22,14 @@ constructor(private httpclient : HttpClient) { }
   }
 
 
-  async getDescripcion(id:string | number):Promise<string>{
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
-    const resJson = await res.json();
-    const texto = resJson.flavor_text_entries.find((texto:any) =>  texto.language.name === "es")
-    return texto.flavor_text;
+  getDescripcion(id:any):Observable<any>{
+
+    return this.httpclient.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`)as Observable<any>
+    // const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)as Observable<any>
+    // const resJson = await res.json();
+    // console.log(resJson)
+    // const texto = resJson.flavor_text_entries.find((texto:any) =>  texto.language.name === "es")
+    // return texto.flavor_text;
   }
 
 }

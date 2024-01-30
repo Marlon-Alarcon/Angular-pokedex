@@ -1,8 +1,8 @@
 <div  class="container" [ngClass]="{seleccionado: seleccionado}">
   <img src="../../../assets/img/flecha.png" class="flecha" *ngIf="seleccionado">
-  <div class="tarjeta" (click)="clickeado.emit(numero)">
+  <div class="tarjeta" (click)="clickeado.emit(numero)" [ngClass]="{seleccionado: seleccionado}">
     <div class="circulo"></div>
-    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{numero}}.png" alt="">
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{numero}}.png" alt="" *ngIf="data">
     <span>No. {{numero}}</span>
     <span>{{data?.name | titlecase}}</span>
   </div>

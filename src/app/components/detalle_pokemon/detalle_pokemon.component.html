@@ -1,16 +1,25 @@
+<div class="backdrop"  [ngClass]="{escondido: !abierto}" (click)="clicked.emit()"></div>
 <div class="container">
-  <div class="area">
-    <app-tarjeta_pokemon></app-tarjeta_pokemon>
-  </div>
-  <div class="area">
-    <p><span class="etiqueta">Tipo</span> <span class="tipo" *ngFor="let tipo of pokemon?.types">{{tipo.type.name}}</span></p>
-    <p><span class="etiqueta">Altura</span> {{pokemon?.height}}</p>
-    <p><span class="etiqueta">Peso</span> {{pokemon?.weight}}</p>
-  </div>
-  <div class="area">
-    <div class="descripcion">
-      <div></div>
-      <p></p>
+
+  <div class="datos">
+    <div class="area">
+      <app-tarjeta_pokemon [fulldata]="pokemon"
+      [seleccionado]="true"></app-tarjeta_pokemon>
+    </div>
+    <div class="area">
+      <p><span class="etiqueta">Tipo</span> <span class="tipo" *ngFor="let tipo of pokemon?.types">{{tipo.type.name}}</span></p>
+      <p><span class="etiqueta">Altura</span> {{getAlturaDelPokemon() / 10}} Metros</p>
+      <p><span class="etiqueta">Peso</span> {{ getPesoDelPokemon() / 10 }} Kilos</p>
+    </div>
+    <div class="area">
+      <div class="descripcion">
+        <div></div>
+        <p>{{descripcion}}</p>
+        <div></div>
+      </div>
     </div>
   </div>
+  <button (click)="clicked.emit()">
+    <img src="../../../assets/img/flecha.png" alt="" [ngClass]="{girar : abierto}">
+  </button>
 </div>

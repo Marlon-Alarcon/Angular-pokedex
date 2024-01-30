@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   pagina:number = 1
   cargando:boolean = false
   pokemonSeleccionado: any = []
+  detalle:boolean = false
 
   constructor(
     private pokemonService:PokemonService
@@ -73,13 +74,39 @@ export class HomeComponent implements OnInit {
 
   }
 
-  seleccionado(id:string){
+  async seleccionado(id:string){
+
+
     console.log(id)
-    this.pokemonSeleccionado = this.pokemonService.getpokemonId(id).subscribe((data: Pokemon) => {
+    this.pokemonService.getpokemonId(id).subscribe((data: Pokemon) => {
       this.pokemonSeleccionado = data
 
       console.log(this.pokemonSeleccionado)
     },(error) => console.log(error))
+
+    if(this.pokemonSeleccionado?.id !== undefined){
+
+      console.log(this.pokemonSeleccionado)
+      if(id === this.pokemonSeleccionado?.id.toString()){
+        console.log(this.pokemonSeleccionado)
+        return this.cambiardetalle()
+      }
+      
+    }
+
+
+  }
+
+  cambiardetalle(){
+
+    if(this.pokemonSeleccionado){
+
+      this.detalle = !this.detalle
+
+      console.log(this.detalle)
+
+    }
+
   }
   
 
